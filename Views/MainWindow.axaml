@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SpecialMathExplorer.Views.MainWindow"
+        Title="SpecialMath Explorer" Height="800" Width="800">
+
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" Text="SpecialMath Explorer" 
+                   FontSize="24" FontWeight="Bold" Margin="20,10" Foreground="#2c3e50"/>
+
+        <TabControl Margin="10">
+            <TabItem Header="Operational (Laplace/Z)">
+                <StackPanel Spacing="10" Margin="20">
+                    <TextBlock Text="Enter Signal (e.g., exp, sin, unit):" FontWeight="Bold"/>
+                    <TextBox Name="TransformInput" Watermark="exp"/>
+                    <Button Content="Calculate Transform" Click="OnCalculateTransform" Background="#3498db" Foreground="White"/>
+                    
+                    <Separator Margin="0,10"/>
+                    <TextBlock Name="TransformResultText" TextWrapping="Wrap" FontSize="16" Foreground="#2980b9"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Complex (Residues)">
+                <StackPanel Spacing="10" Margin="20">
+                    <TextBlock Text="Pole Order (n):" FontWeight="Bold"/>
+                    <NumericUpDown Name="PoleOrderInput" Value="1" Minimum="1"/>
+                    <Button Content="Show Residue Formula" Click="OnShowResidue" Background="#9b59b6" Foreground="White"/>
+                    
+                    <Separator Margin="0,10"/>
+                    <TextBlock Name="ResidueResultText" TextWrapping="Wrap" FontSize="16" Foreground="#8e44ad"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="PDE (Canonical Form)">
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto, Auto, Auto" Margin="20">
+                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
+                        <TextBlock Text="a11:"/>
+                        <TextBox Name="A11"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="5">
+                        <TextBlock Text="a12:"/>
+                        <TextBox Name="A12"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="2" Margin="5">
+                        <TextBlock Text="a22:"/>
+                        <TextBox Name="A22"/>
+                    </StackPanel>
+                    <Button Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0" Content="Classify &amp; Reduce" 
+                            Click="OnPdeAction" Margin="5" Background="#e67e22" Foreground="White"/>
+                    <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0" Name="PdeResultText" Margin="5" FontSize="14"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

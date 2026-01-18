@@ -1,0 +1,31 @@
+[Bb]in/
+[Oo]bj/
+READY_TO_SEND/
+
+.idea/
+*.sln.iml
+
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+.vs/
+[Tt]est[Rr]esults/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+Network Trash Folder
+Temporary Items
+.Spotlight-V100
+.Trashes
+
+*.log
+*.tmp
